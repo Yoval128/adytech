@@ -27,7 +27,6 @@ class AuthController
 
     public function sendRegister()
     {
-
         print_r($_POST);
         $nombre = $_POST['nombre'];
         $correo = $_POST['correo'];
@@ -51,29 +50,27 @@ class AuthController
         }
     }
 
+    public function authLogin()
+    {
+        $firts_name = $_POST['username'];
+        $password = $_POST['password'];
 
+        //$passwordEncriptada = password_hash($password, PASSWORD_DEFAULT);
 
+        $connection = $this->db->getConnection();
+        $query = $connection->prepare("SELECT * FROM users WHERE first_name = ? AND password = ?");
+        $query->bind_param('ss', $firts_name, $password);
 
-    // public function login()
-    // {
-    //     $username = $_POST['username'] ?? '';
+        if ($query->execute()) {
+            $result = $query->get_result();
+            if ($result->num_rows > 0) {
+                header('Location: lista/usuarios');
+               //print("Usuario Encontrado");
+            } else {
+                //print("Erro, Datos de usuario o contraseña incorrecta");
+                header('Location: login');
+            }
+        } 
+    }
 
-    //     if (empty($username)) {
-    //         $message = 'Please provide a username';
-    //     } else {
-    //         $connection = $this->db->getConnection();
-    //         $stmt = $connection->prepare('SELECT * FROM users WHERE first_name = ?');
-    //         $stmt->bind_param('s', $username);
-
-    //         $stmt->execute();
-    //         $result = $stmt->get_result();
-    //         $user = $result->fetch_assoc();
-
-    //         if ($user) {
-    //             print('Existe el usuario: ' . $_POST['username']);
-    //         } else {
-    //             print 'El usuario no existe';
-    //         }
-    //     }
-    // }
 }
