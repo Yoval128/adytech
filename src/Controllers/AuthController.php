@@ -4,12 +4,10 @@ namespace App\Controllers;
 
 use App\Core\Database;
 
-
-
 class AuthController
 {
-
     private $db;
+
     public function __construct()
     {
         $this->db = new Database();
@@ -25,23 +23,21 @@ class AuthController
         require __DIR__ . '/../Views/register.php';
     }
 
-    public function sendRegister()
-    {
-        print_r($_POST);
+    public function sendRegister() {
         $nombre = $_POST['nombre'];
         $correo = $_POST['correo'];
         $password = $_POST['password'];
-        print_r($password);
-        print_r("<br>");
-
-        $passwordEncrypada = password_hash($password, PASSWORD_DEFAULT);
-
-        print_r($passwordEncrypada);
-
-        $conection = $this->db->getConnection();
-        $query = $conection->prepare("INSERT INTO users (first_name, email,password) VALUES(?,?,?)");
-        $query->bind_param('sss', $nombre, $correo, $passwordEncrypada);
-
+        
+        var_dump($nombre); // Depuración: Nombre ingresado
+        var_dump($correo); // Depuración: Correo ingresado
+        var_dump($password); // Depuración: Contraseña ingresada
+    
+        $passwordEncryptada = password_hash($password, PASSWORD_DEFAULT);
+    
+        $connection = $this->db->getConnection();
+        $query = $connection->prepare("INSERT INTO users (first_name, email, password) VALUES (?,?,?)");
+        $query->bind_param('sss', $nombre, $correo, $passwordEncryptada);
+    
         if ($query->execute()) {
             header('Location: /register');
             exit();
@@ -49,28 +45,44 @@ class AuthController
             print('No se pudo generar el registro');
         }
     }
+    
 
-    public function authLogin()
-    {
-        $firts_name = $_POST['username'];
-        $password = $_POST['password'];
-
-        //$passwordEncriptada = password_hash($password, PASSWORD_DEFAULT);
-
+    public function login() {
+    
+        $email = $_POST['email'];
+        $password = $_POST['password'];        
         $connection = $this->db->getConnection();
-        $query = $connection->prepare("SELECT * FROM users WHERE first_name = ? AND password = ?");
-        $query->bind_param('ss', $firts_name, $password);
-
-        if ($query->execute()) {
-            $result = $query->get_result();
-            if ($result->num_rows > 0) {
-                header('Location: lista/usuarios');
-               //print("Usuario Encontrado");
+        $query = $connection->prepare('SELECT * FROM users WHERE email = ?');
+        $query->bind_param('s', $email);
+        $query->execute();
+    
+        $result = $query->get_result();
+    
+        if ($result->num_rows === 1) {
+            $user = $result->fetch_assoc();
+            $userPasswordEncrypt = $user['password'];  
+            $verifyPassword = password_verify($password, $userPasswordEncrypt);
+    
+            if ($verifyPassword) {
+                session_start();
+                $_SESSION['id'] = $user["id"];
+                $_SESSION['name'] = $user['first_name'];
+                $_SESSION['email'] = $user["email"];
+                header('Location: /home');
+                exit();
             } else {
-                //print("Erro, Datos de usuario o contraseña incorrecta");
-                header('Location: login');
+                echo "password incorrecta";
             }
-        } 
+        } else {
+            echo "usuario no existente";
+        }
     }
-
+    
+    public function logout()
+    {
+        session_start();
+        session_destroy();
+        header("Location: /");
+        exit();
+    }
 }
