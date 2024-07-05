@@ -1,6 +1,7 @@
 <?php
 
 use App\Core\Router;
+use App\Middleware\AuthMiddleware;
 
 $router = new Router();
 
@@ -10,7 +11,7 @@ $router->add('/', 'AuthController@showlogin');
 $router->add('/postLogin', 'AuthController@login', 'POST');
 $router->add('/register', 'AuthController@showRegister');
 $router->add('/register', 'AuthController@sendRegister', 'POST');
-$router->add('/home', 'HomeController@home');
+$router->add('/home', 'HomeController@home', 'GET', [[AuthMiddleware::class, 'handle']]);
 $router->add('/logout', 'AuthController@logout');
 
 return $router;
