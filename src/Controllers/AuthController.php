@@ -10,7 +10,7 @@ class AuthController
 
     public function __construct()
     {
-        $this->db = new Database();
+        $this->db = Database::getInstance();
     }
 
     public function showlogin()
@@ -27,10 +27,7 @@ class AuthController
         $nombre = $_POST['nombre'];
         $correo = $_POST['correo'];
         $password = $_POST['password'];
-        
-        var_dump($nombre); // Depuración: Nombre ingresado
-        var_dump($correo); // Depuración: Correo ingresado
-        var_dump($password); // Depuración: Contraseña ingresada
+    
     
         $passwordEncryptada = password_hash($password, PASSWORD_DEFAULT);
     

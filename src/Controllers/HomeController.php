@@ -8,7 +8,9 @@ use App\Models\User;
 class HomeController {
     private $db;
     public function __construct(){
-        $this->db = new Database();
+      //  $this->db = new Database();
+      $this->db= Database::getInstance()->getConnection();
+       
     }
 
     public function index(){
