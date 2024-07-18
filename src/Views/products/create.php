@@ -31,7 +31,7 @@
             <div class="form-group">
                 <label for="category_id">Category</label>
                 <select class="form-control" name="category_id" id="category_id">
-                    <?php foreach($categories as $category): ?>
+                    <?php foreach ($categories as $category) : ?>
                         <option value="<?php echo $category['id'] ?>">
                             <?php echo $category['name'] ?>
                         </option>

@@ -5,52 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Productos</title>
-    <link rel="stylesheet" href="/public/css/styles.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            margin: 0;
-            padding: 20px;
-            color: #333;
-        }
-
-        #header {
-            background-color: #333;
-            color: #fff;
-            padding: 10px 20px;
-            margin-bottom: 20px;
-        }
-
-        h2 {
-            margin-bottom: 10px;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-            background-color: #fff;
-            border: 1px solid #ccc;
-        }
-
-        th, td {
-            padding: 12px 15px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
-
-        th {
-            background-color: #f2f2f2;
-            color: #333;
-            text-transform: uppercase;
-        }
-
-        .delete-btn {
-            color: red;
-            cursor: pointer;
-        }
-    </style>
+    <link rel="stylesheet" href="/css/styles.css">
+  
 </head>
 
 <body>
@@ -81,8 +37,13 @@
                         <td><?php echo htmlspecialchars($product['stock']); ?></td>
                         <td><?php echo htmlspecialchars($product['category_id']); ?></td>
                         <td>
-                            <form action="/products/delete/<?php echo htmlspecialchars($product['id']); ?>" method="POST" onsubmit="return confirm('¿Estás seguro de que quieres eliminar este producto?');">
-                                <button type="submit" class="delete-btn">Eliminar</button>
+                            <form action="/products/delete" method="POST" onsubmit="return confirm('¿Estás seguro de que quieres eliminar este producto?');" style="display:inline-block;">
+                                <input type="hidden" name="product_id" value="<?php echo htmlspecialchars($product['id']); ?>">
+                                <button type="submit" class="btn btn-danger">Eliminar</button>
+                            </form>
+                            <form action="/products/alter" method="POST" style="display:inline-block;">
+                                <input type="hidden" name="product_id" value="<?php echo htmlspecialchars($product['id']); ?>">
+                                <button type="submit" class="btn btn-primary">Modificar</button>
                             </form>
                         </td>
                     </tr>
