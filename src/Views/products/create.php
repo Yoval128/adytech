@@ -9,7 +9,8 @@
 </head>
 
 <body>
-    <div class="container">
+   <section class="create-section">
+   <div class="container">
         <h1>Create product</h1>
         <form action="/products/create" method="POST">
             <div class="form-group">
@@ -42,6 +43,7 @@
         </form>
     </div>
 
+   </section>
 </body>
 
 </html>
