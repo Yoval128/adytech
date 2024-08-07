@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Modificar Producto</title>
     <link rel="stylesheet" href="/css/style.css">
 </head>
+
 <body>
-    
+
     <section class="product-section">
         <div class="product-container">
             <h2>Modificar Producto</h2>
@@ -32,7 +34,7 @@
                 <div class="product-form-group">
                     <label for="category_id">Categoría</label>
                     <select id="category_id" name="category_id" required>
-                        <?php foreach ($categories as $category): ?>
+                        <?php foreach ($categories as $category) : ?>
                             <option value="<?php echo htmlspecialchars($category['id']); ?>" <?php if ($category['id'] == $product['category_id']) echo 'selected'; ?>>
                                 <?php echo htmlspecialchars($category['name']); ?>
                             </option>
@@ -45,20 +47,9 @@
     </section>
 
     <footer>
-        <div class="footer-content">
-            <ul class="socials">
-                <li><a href="#"><i class="fa fa-facebook">Facebook</i></a></li>
-            </ul>
-        </div>
-        <div class="footer-bottom">
-            <p>copyright &copy; <a href="#">AdyTech</a> </p>
-            <div class="footer-menu">
-                <ul class="f-menu">
-                    <li><a href="">About</a></li>
-                    <li><a href="">Contact</a></li>
-                </ul>
-            </div>
-        </div>
+        <?php
+        require_once('../src/Views/footer.php'); ?>
     </footer>
 </body>
+
 </html>

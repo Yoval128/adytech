@@ -9,24 +9,6 @@
 </head>
 
 <body>
-<nav class="navbar">
-        <ul class="nav-menu">
-            <li class="nav-item">
-                <a href="#" class="nav-link">Productos</a>
-                <ul class="submenu">
-                    <li><a href="#" class="submenu-link">Agregar producto</a></li>
-                    <li><a href="#" class="submenu-link">Lista de productos</a></li>
-                </ul>
-            </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link">Usuarios</a>
-                <ul class="submenu">
-                    <li><a href="#" class="submenu-link">Agregar usuario</a></li>
-                    <li><a href="#" class="submenu-link">Lista de usuarios</a></li>
-                </ul>
-            </li>
-        </ul>
-    </nav>
     <section class="list-section">
         <div id="header">
             <h2>Lista de Productos</h2>
@@ -76,7 +58,14 @@
         </div>
     </section>
 
+
+
     <footer>
+        <?php
+         require_once('../src/Views/footer.php');
+         ?>
+    </footer>
+    <!-- <footer>
         <div class="footer-content">
             <ul class="socials">
                 <li><a href="#"><i class="fa fa-facebook">Facebook</i></a></li>
@@ -91,7 +80,7 @@
                 </ul>
             </div>
         </div>
-    </footer>
+    </footer> -->
 </body>
 
 </html>

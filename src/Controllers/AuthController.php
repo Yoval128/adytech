@@ -75,9 +75,19 @@ class AuthController
         }
     }
     
+    // public function logout()
+    // {
+    //     session_start();
+    //     session_destroy();
+    //     header("Location: /");
+    //     exit();
+    // }
+
     public function logout()
     {
-        session_start();
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
         session_destroy();
         header("Location: /");
         exit();
