@@ -14,7 +14,7 @@
     <section class="login-section">
         <div class="container-form">
             <div class="container-img">
-                <img src="/images/Ady-Tech-Logo.jpeg" alt="Logo">
+                <img src="/images/logo/Ady-Tech-Logo.jpeg" alt="Logo">
             </div>
             <div class="container-group-form">
                 <h2>LOGIN</h2>

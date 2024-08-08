@@ -20,7 +20,7 @@ class AuthController
 
     public function showRegister()
     {
-        require __DIR__ . '/../Views/register.php';
+        require __DIR__ . '/../Views/users/register.php';
     }
 
     public function sendRegister() {
@@ -36,7 +36,7 @@ class AuthController
         $query->bind_param('sss', $nombre, $correo, $passwordEncryptada);
     
         if ($query->execute()) {
-            header('Location: /register');
+            header('Location: /home');
             exit();
         } else {
             print('No se pudo generar el registro');
