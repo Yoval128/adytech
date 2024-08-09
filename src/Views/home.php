@@ -4,74 +4,115 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Home</title>
     <link rel="stylesheet" href="/css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 
 <body>
+    <div class="container">
+      
+    <?php require_once '..\src\Views\partials\sidebar.php' ?>
 
-    <body>
-        <?php
-        require_once '../src/Views/partials/sidebar.php'
-        ?>
-        <div id="content">
-            <header id="header">
-                <div>
-                    <?php
-                    if (session_status() === PHP_SESSION_NONE) {
-                        session_start();
-                    }
-                    echo "Bienvenido, " . htmlspecialchars($_SESSION['name']);
-                    ?>
-                </div>
-                <div>
+        <main class="content">
+            <div class="greeting-box">
+                <h3>¡Hola, bienvenido al sistema de ventas, <?php
+                                                            if (session_status() === PHP_SESSION_NONE) {
+                                                                session_start();
+                                                            }
+                                                            echo htmlspecialchars($_SESSION['name']);
+                                                            ?>!</h3>
+                <div class="greeting-actions">
                     <form action="/logout" method="get">
                         <button type="submit">Cerrar Sesión</button>
                     </form>
                 </div>
-            </header>
+            </div>
 
-            <section id="welcome-section">
-                <h2>Panel de control</h2>
-                <p>Elige una opción para comenzar</p>
-                <div class="option-container">
-                    <div class="option-box">
-                        <a href="">
-                            <img src="/images/icons/icon-shopping-bag.png" alt="Opción 2">
-                            <h4>Realizar una venta</h4>
-                            <p>Hacer una venta de un producto al cliente </p>
-                        </a>
-                    </div>
-                    <div class="option-box">
-                        <a href="/products/list">
-                            <img src="/images/icons/icon-inventory.png" alt="Opción 2">
-                            <h4>Inventario</h4>
-                            <p>Visualizar lista de productos, Registar, Eliminar, o Actualizar detalles productos</p>
-                        </a>
-                    </div>
-                    <div class="option-box">
-                        <a href="/register">
-                            <img src="/images/icons/icon-group.png" alt="Opción 3">
-                            <h4>Mis Proveedores</h4>
-                            <p>Visualizar lista de productos, Registar, Eliminar, o Actualizar detalles de Proveedores</p>
-                    </div>
-                    </a>
-                    <div class="option-box">
-                        <a href="/register">
-                            <img src="/images/icons/icon-users.png" alt="Opción 4">
-                            <h4>Mis Empleados</h4>
-                            <p>Visualizar lista de productos, Registar, Eliminar, o Actualizar detalles de Empleados</p>
-                        </a>
+            <div class="title-box">
+                <h1>Panel de Control</h1>
+            </div>
+            <div class="description-box">
+                <div class="menu-container">
+                    <div class="menu-container">
+                        <div class="menu-box">
+                            <a href="">
+                                <div class="menu-icon">
+                                    <img src="/images/icons/icon-shopping-bag.png" alt="Opción 2">
+                                </div>
+                                <div class="menu-title">
+                                    <h2>Realizar una venta</h2>
+                                </div>
+                                <div class="menu-description">
+                                    <p>Hacer una venta de un producto al cliente </p>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="menu-box">
+                            <a href="/products/list">
+                                <div class="menu-icon">
+                                    <img src="/images/icons/icon-inventory.png" alt="Opción 2">
+                                </div>
+                                <div class="menu-title">
+                                    <h2>Inventario</h2>
+                                </div>
+                                <div class="menu-description">
+                                    <p>Visualizar lista de productos, Registar, Eliminar, o Actualizar detalles productos</p>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="menu-box">
+                            <a href="">
+                                <div class="menu-icon">
+                                    <img src="/images/icons/icon-users.png" alt="Opción 4">
+                                </div>
+                                <div class="menu-title">
+                                    <h2>Mis Empleados</h2>
+                                </div>
+                                <div class="menu-description">
+                                    <p>Visualizar lista de productos, Registar, Eliminar, o Actualizar detalles de Empleados</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="menu-box">
+                            <a href="">
+                                <div class="menu-icon">
+                                    <img src="/images/icons/icon-groups.png" alt="Opción 4">
+                                </div>
+                                <div class="menu-title">
+                                    <h2>Mis Proveedores</h2>
+                                </div>
+                                <div class="menu-description">
+                                    <p>Visualizar lista de Proveedores, Registar, Eliminar, o Actualizar detalles de Empleados</p>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="menu-box">
+                            <a href="">
+                                <div class="menu-icon">
+                                    <img src="" alt="">
+                                </div>
+                                <div class="menu-title">
+                                    <h2> </h2>
+                                </div>
+                                <div class="menu-description">
+                                    <p></p>
+                                </div>
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </section>
-        </div>
-    </body>
+            </div>
+        </main>
+    </div>
     <footer>
-        <script src="/js/scripts.js"></script>
-
-        <!-- <?php
-                require_once '..\src\Views\partials\footer.php'
-                ?> -->
+        <script src="\js\scripts.js"></script>
+        <p>Hola mundo</p>
     </footer>
+</body>
 
 </html>

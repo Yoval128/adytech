@@ -1,38 +1,45 @@
-<nav id="sidebar">
-    <h2>Menu</h2>
-    <hr>
-    <ul>
-        <li><a href="/home"><img src="\images\icons\icon-home.png" alt="Inicio">Inicio</a></li>
-        <li class="submenu-toggle">
-            <div class="submenu-toggle-title">
-                Ventas <img src="\images\icons\icons\icon-expand_circle_down.png" alt="Inventario">
+<aside class="sidebar">
+            <h2>Menu</h2>
+            <div class="menu-item">
+               <a href="/home">
+               <i class="icon-home"></i>
+               <span>Home</span>
+               </a>
             </div>
-            <ul class="submenu">
-                <li><a href="#"><img src="\images\icons\icons\icon.png" alt="Submenú 1">Agregar productos</a></li>
-                <li><a href="#"><img src="\images\icons\icons\icon.png" alt="Submenú 2">Alterar productos</a></li>
-                <li><a href="#"><img src="\images\icons\icons\icon.png" alt="Submenú 3">Eliminar Productos</a></li>
-            </ul>
-        </li>
-        <li class="submenu-toggle">
-            <div class="submenu-toggle-title">
-                Inventario <img src="\images\icons\icons\icon-expand_circle_down.png" alt="Inventario">
+            <div class="menu-item">
+                <span class="menu-toggle">+ Registros</span>
+                <div class="submenu">
+                    <a href="#">Alta</a>
+                    <a href="#">Eliminación</a>
+                    <a href="#">Alterar</a>
+                </div>
             </div>
-            <ul class="submenu">
-                <li><a href="#"><img src="\images\icons\icons\icon.png" alt="Submenú 1">Agregar productos</a></li>
-                <li><a href="#"><img src="\images\icons\icons\icon.png" alt="Submenú 2">Alterar productos</a></li>
-                <li><a href="#"><img src="\images\icons\icons\icon.png" alt="Submenú 3">Eliminar Productos</a></li>
-            </ul>
-        </li>
-        <li class="submenu-toggle">
-            <div class="submenu-toggle-title">
-                Más <img src="\images\icons\icons\icon-expand_circle_down.png" alt="Más">
+            <div class="menu-item">
+                <span class="menu-toggle">+ Inventario</span>
+                <div class="submenu">
+                    <a href="#">Alta</a>
+                    <a href="#">Alterar</a>
+                </div>
             </div>
-            <ul class="submenu">
-                <li><a href="#"><img src="\images\icons\icons\icon.png" alt="Submenú 1">Inventario</a></li>
-                <li><a href="#"><img src="\images\icons\icons\icon.png" alt="Submenú 2">Código de Barras</a></li>
-                <li><a href="#"><img src="\images\icons\icons\icon.png" alt="Submenú 3">Submenú 3</a></li>
-                <li><a href="#"><img src="\images\icons\icons\icon.png" alt="Submenú 4">Submenú 4</a></li>
-            </ul>
-        </li>
-    </ul>
-</nav>
+            <div class="menu-item">
+                <span class="menu-toggle">+ Más</span>
+                <div class="submenu">
+                    <a href="#">QR</a>
+                    <a href="#">Estadísticas</a>
+                </div>
+            </div>
+            <div class="menu-item">
+                <span class="menu-toggle">+ Más</span>
+                <div class="submenu">
+                    <a href="#">QR</a>
+                    <a href="#">Estadísticas</a>
+                </div>
+            </div>
+            <div class="menu-item">
+                <span class="menu-toggle">+ Más</span>
+                <div class="submenu">
+                    <a href="#">QR</a>
+                    <a href="#">Estadísticas</a>
+                </div>
+            </div>
+        </aside>

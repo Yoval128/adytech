@@ -1,0 +1,291 @@
+
+
+#content {
+    margin-left: 270px;
+    padding: 20px;
+    flex: 1;
+}
+
+#header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #d4af37;
+    color: #1c1c1c;
+
+}
+
+#header div {
+    display: flex;
+    align-items: center;
+}
+
+#header form {
+    margin: 0;
+}
+
+#header button {
+    padding: 10px;
+    background-color: #a12b29;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#header button:hover {
+    background-color: #8c1e1c;
+}
+
+#welcome-section {
+    padding: 20px;
+}
+
+#welcome-section h2 {
+    color: #d4af37;
+    margin-bottom: 10px;
+}
+
+#welcome-section p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+
+.option-box {
+    background-color: #ffffff;
+    border: 1px solid #d4af37;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+    flex: 1 1 calc(20% - 10px);
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+.option-box a {
+    text-decoration: none;
+}
+
+.option-box img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+.option-box h4 {
+    color: #d4af37;
+    margin-bottom: 10px;
+}
+
+.option-box p {
+    color: #1c1c1c;
+}
+
+.option-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.option-container p {
+    font-size: 12px !important;
+}
+
+.section-list-products {
+    margin-bottom: 10px;
+}
+
+.register-section,
+.product-section,
+.login-section {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.create-section.product-section {
+    margin-left: 270px;
+    padding: 20px;
+}
+
+.list-section {
+
+    margin: 10px;
+    padding: 10px;
+}
+
+.register-container {
+    width: 100%;
+    max-width: 600px;
+    padding: 40px;
+    color: #d4af37;
+}
+
+.register-form-wrapper {
+    width: 100%;
+}
+
+.register-form-group {
+    margin-bottom: 15px;
+}
+
+.product-button,
+.register-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #d4af37;
+    border: none;
+    font-weight: bold;
+    color: #1c1c1c;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: medium;
+}
+
+.container-form {
+    margin: 10px;
+    display: flex;
+    width: 100%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    height: 70vh;
+}
+
+.container-img {
+    flex: 0 0 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-img img {
+    max-width: 100%;
+    height: auto;
+}
+
+.container-group-form {
+    width: 50%;
+    padding: 40px;
+    color: #d4af37;
+    align-content: center;
+    margin-left: 50px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #d4af37;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #d4af37;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #d4af37;
+    border: none;
+    color: #1c1c1c;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #b89529;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    color: #270101;
+}
+
+.table-container {
+    max-height: 1000px;
+    overflow-y: auto;
+    border: 1px solid #d4af37;
+    border-radius: 5px;
+}
+
+th,
+td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #d4af37;
+}
+
+th {
+    background-color: #720017;
+    color: #ffffff;
+    text-transform: uppercase;
+}
+
+
+.btn-primary {
+    background-color: #d4af37;
+    color: #1c1c1c;
+}
+
+.btn-primary:hover {
+    background-color: #b89529;
+}
+
+.btn-danger {
+    background-color: #a12b29;
+    color: #ffffff;
+}
+
+.btn-danger:hover {
+    background-color: #8c1e1c;
+}
+
+.tb-header {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.tb-header h2 {
+    color: #d4af37;
+}
+
+
+
+
+
+.product-form-wrapper {
+    width: 100%;
+}
+
+
+.product-form-group {
+    margin-bottom: 15px;
+}
+
+textarea,
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #ffffff;
+    color: #000000;
+}

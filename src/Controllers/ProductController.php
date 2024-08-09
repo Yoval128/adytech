@@ -26,6 +26,8 @@ class ProductController
     {
         $data = $_POST;
         $this->product->create($data);
+
+        require __DIR__ . "/../Views/products/create.php";
     }
 
     public function listProducts()
@@ -45,13 +47,13 @@ class ProductController
 
     public function edit()
     {
-        $id = $_POST['product_id'] ?? null; 
-    
+        $id = $_POST['product_id'] ?? null;
+
         $product = $this->product->find($id);
         $categories = $this->category->getAll();
         require __DIR__ . '/../Views/products/alter.php';
     }
-    
+
 
     public function update()
     {

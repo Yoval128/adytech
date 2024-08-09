@@ -1,10 +1,7 @@
-document.addEventListener("DOMContentLoaded", function() {
-    const submenuToggles = document.querySelectorAll('.submenu-toggle');
+document.querySelectorAll('.menu-toggle').forEach(item => {
+    item.addEventListener('click', () => {
+        const submenu = item.nextElementSibling;
 
-    submenuToggles.forEach(function(toggle) {
-        toggle.addEventListener('click', function() {
-            const submenu = this.querySelector('.submenu');
-            submenu.classList.toggle('show');
-        });
+        submenu.style.display = submenu.style.display === 'block' ? 'none' : 'block';
     });
 });
