@@ -31,13 +31,11 @@ use App\Middleware\AuthMiddleware;
 
 $router = new Router();
 
-// Autenticación
 $router->add('/', 'AuthController@showLogin');
 $router->add('/postLogin', 'AuthController@login', 'POST');
 $router->add('/home', 'HomeController@home', 'GET', [[AuthMiddleware::class, 'handle']]);
 $router->add('/logout', 'AuthController@logout');
 
-// CRUD de Productos
 $router->add('/products/create', 'ProductController@create');
 $router->add('/products/create', 'ProductController@store', 'POST');
 $router->add('/products/list', 'ProductController@listProducts');
@@ -45,15 +43,17 @@ $router->add('/products/delete', 'ProductController@delete', 'POST');
 $router->add('/products/alter', 'ProductController@edit', 'POST');
 $router->add('/products/update', 'ProductController@update', 'POST');
 
-// CRUD de Usuarios
-$router->add('/users/create', 'UserController@create');
-$router->add('/users/store', 'UserController@store', 'POST');
 $router->add('/users/list', 'UserController@listUsers');
 $router->add('/users/delete', 'UserController@delete', 'POST');
 $router->add('/users/alter', 'UserController@edit', 'POST');
 $router->add('/users/update', 'UserController@update', 'POST');
-
 $router->add('/register', 'AuthController@showRegister');
 $router->add('/register', 'AuthController@sendRegister', 'POST');
 
+$router->add('/sales/create', 'SaleController@create');
+$router->add('/sales/store', 'SaleController@store', 'POST');
+$router->add('/sales/list', 'SaleController@listSales');
+$router->add('/sales/delete', 'SaleController@delete', 'POST');
+$router->add('/sales/alter', 'SaleController@edit', 'POST');
+$router->add('/sales/update', 'SaleController@update', 'POST');
 return $router;

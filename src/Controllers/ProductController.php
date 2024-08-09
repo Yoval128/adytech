@@ -63,4 +63,12 @@ class ProductController
         header('Location: /products/list');
         exit();
     }
+
+    public function search()
+    {
+        $query = $_GET['query'] ?? '';
+        $products = $this->product->search($query);
+        echo json_encode($products);
+        exit();
+    }
 }

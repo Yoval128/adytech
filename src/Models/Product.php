@@ -61,4 +61,13 @@ class Product
         $stmt->bind_param('i', $id);
         return $stmt->execute();
     }
+    public function search($query)
+{
+    $sql = "SELECT * FROM products WHERE id = ?";
+    $stmt = $this->conn->prepare($sql);
+    $stmt->bind_param('i', $query);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    return $result->fetch_assoc(); 
+}
 }

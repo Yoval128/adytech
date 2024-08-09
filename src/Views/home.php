@@ -12,8 +12,8 @@
 
 <body>
     <div class="container">
-      
-    <?php require_once '..\src\Views\partials\sidebar.php' ?>
+
+        <?php require_once '..\src\Views\partials\sidebar.php' ?>
 
         <main class="content">
             <div class="greeting-box">
@@ -36,8 +36,9 @@
             <div class="description-box">
                 <div class="menu-container">
                     <div class="menu-container">
+
                         <div class="menu-box">
-                            <a href="">
+                            <a href="/sales/create">
                                 <div class="menu-icon">
                                     <img src="/images/icons/icon-shopping-bag.png" alt="Opción 2">
                                 </div>
@@ -65,7 +66,7 @@
                         </div>
 
                         <div class="menu-box">
-                            <a href="">
+                            <a href="/users/list">
                                 <div class="menu-icon">
                                     <img src="/images/icons/icon-users.png" alt="Opción 4">
                                 </div>

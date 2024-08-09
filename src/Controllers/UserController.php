@@ -23,7 +23,7 @@ class UserController
         $data = $_POST;
         $this->user->create($data);
         header('Location: /users/list');
-        exit();
+        exit(); 
     }
 
     public function listUsers()
