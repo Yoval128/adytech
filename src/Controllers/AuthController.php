@@ -36,7 +36,7 @@ class AuthController
         $query->bind_param('sss', $nombre, $correo, $passwordEncryptada);
     
         if ($query->execute()) {
-            header('Location: /home');
+            header('Location: /users/list');
             exit();
         } else {
             print('No se pudo generar el registro');

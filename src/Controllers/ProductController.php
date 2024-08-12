@@ -66,9 +66,8 @@ class ProductController
 
     public function search()
     {
-        $query = $_GET['query'] ?? '';
-        $products = $this->product->search($query);
-        echo json_encode($products);
-        exit();
+        $id = $_GET['product_id'] ?? null;
+        $product = $this->product->find($id);
+        require __DIR__ . '/../Views/products/search.php';
     }
 }

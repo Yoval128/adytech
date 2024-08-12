@@ -35,7 +35,7 @@
 
             <div class="menu-item-page">
                 <div class="menu-icon-page">
-                    <img src="/images/icons/icon4.png" alt="Opción 4">
+                    <img src="/images/icons/icon-search-products.png" alt="Opción 4">
                 </div>
                 <div class="menu-title-page">
                     <h2>Buscar Venta (Id)</h2>

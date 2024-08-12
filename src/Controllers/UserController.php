@@ -13,10 +13,7 @@ class UserController
         $this->user = new User();
     }
 
-    public function create()
-    {
-        require __DIR__ . "/../Views/users/create.php";
-    }
+    
 
     public function store()
     {
@@ -39,12 +36,12 @@ class UserController
         header('Location: /users/list');
         exit();
     }
-
+ 
     public function edit()
     {
         $id = $_POST['user_id'] ?? null;
         $user = $this->user->find($id);
-        require __DIR__ . '/../Views/users/alter.php';
+        require __DIR__ . '/../Views/users/userUpdate.php';
     }
 
     public function update()

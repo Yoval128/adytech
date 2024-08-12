@@ -3,7 +3,7 @@
         <div class="menu-row-page">
 
             <div class="menu-item-page">
-                <a href="/products/create">
+                <a href="/register">
                     <div class="menu-icon-page">
                         <img src="/images/icons/icon-add-products.png" alt="Create">
                     </div>
@@ -32,20 +32,12 @@
                     <h2>Buscar Empleado</h2>
                 </div>
             </div>
-
-            <div class="menu-item-page">
-                <div class="menu-icon-page">
-                    <img src="/images/icons/icon4.png" alt="Opción 4">
-                </div>
-                <div class="menu-title-page">
-                    <h2>Opción 4</h2>
-                </div>
-            </div>
         </div>
+
         <div class="menu-row-page">
             <div class="menu-item-page">
                 <div class="menu-icon-page">
-                    <img src="/images/icons/icon5.png" alt="Opción 5">
+                    <img src="/images/icons/icon-question_mark.png" alt="Opción 5">
                 </div>
                 <div class="menu-title-page">
                     <h2>Opción 5</h2>
@@ -53,7 +45,7 @@
             </div>
             <div class="menu-item-page">
                 <div class="menu-icon-page">
-                    <img src="/images/icons/icon6.png" alt="Opción 6">
+                    <img src="/images/icons/icon-question_mark.png" alt="Opción 6">
                 </div>
                 <div class="menu-title-page">
                     <h2>Opción 6</h2>
@@ -61,7 +53,7 @@
             </div>
             <div class="menu-item-page">
                 <div class="menu-icon-page">
-                    <img src="/images/icons/icon7.png" alt="Opción 7">
+                    <img src="/images/icons/icon-question_mark.png" alt="Opción 7">
                 </div>
                 <div class="menu-title-page">
                     <h2>Opción 7</h2>

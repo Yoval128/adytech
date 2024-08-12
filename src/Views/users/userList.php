@@ -44,7 +44,6 @@
                                         <p>Telefono: <?php echo htmlspecialchars($user['phone']); ?></p>
                                         <p>Dirección: <?php echo htmlspecialchars($user['Address']); ?></p>
                                         <p>Tipo de usuario: <?php echo htmlspecialchars($user['user_type_id']); ?></p>
-                                        <!-- <p>Contraseña: <?php echo htmlspecialchars($users['password']); ?></p> -->
                                     </div>
                                 </div>
                                 <div class="users-actions">

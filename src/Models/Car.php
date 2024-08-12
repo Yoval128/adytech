@@ -20,14 +20,14 @@ class Cart
         $productId = $product['id'];
         
         if (isset($_SESSION['cart'][$productId])) {
-            $_SESSION['cart'][$productId]['quantity'] += 1;
+            $_SESSION['cart'][$productId]['stock'] += 1;
         } else {
             $_SESSION['cart'][$productId] = [
                 'id' => $productId,
                 'name' => $product['name'],
                 'description' => $product['description'],
                 'price' => $product['price'],
-                'quantity' => 1
+                'stock' => 1
             ];
         }
 

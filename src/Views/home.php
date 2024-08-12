@@ -79,7 +79,7 @@
                             </a>
                         </div>
                         <div class="menu-box">
-                            <a href="">
+                            <a href="/suppliers/list">
                                 <div class="menu-icon">
                                     <img src="/images/icons/icon-groups.png" alt="Opción 4">
                                 </div>
@@ -95,13 +95,13 @@
                         <div class="menu-box">
                             <a href="">
                                 <div class="menu-icon">
-                                    <img src="" alt="">
+                                    <img src="/images/icons/icon-question_mark.png" alt="Opccion 5">
                                 </div>
                                 <div class="menu-title">
-                                    <h2> </h2>
+                                    <h2>Menu</h2>
                                 </div>
                                 <div class="menu-description">
-                                    <p></p>
+                                    <xc>Descripccion</p>
                                 </div>
                             </a>
                         </div>

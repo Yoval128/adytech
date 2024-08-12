@@ -4,7 +4,7 @@ namespace App\Models;
 
 use App\Core\Database;
 
-class User
+class Supplier
 {
     private $conn;
 
@@ -14,24 +14,23 @@ class User
     }
 
     public function create($data)
-    {
-        $sql = "INSERT INTO users (username, email, password) VALUES (?, ?, ?)";
+    { 
+        $sql = "INSERT INTO suppliers (name, contact, phone, email, address) VALUES (?, ?, ?, ?, ?)";
         $stmt = $this->conn->prepare($sql);
-        $hashedPassword = password_hash($data['password'], PASSWORD_BCRYPT);
-        $stmt->bind_param('sss', $data['username'], $data['email'], $hashedPassword);
+        $stmt->bind_param('sssss', $data['name'], $data['contact'], $data['phone'], $data['email'], $data['address']);
         return $stmt->execute();
     }
 
     public function getAll()
     {
-        $sql = "SELECT * FROM users";
+        $sql = "SELECT * FROM suppliers";
         $result = $this->conn->query($sql);
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
     public function find($id)
     {
-        $sql = "SELECT * FROM users WHERE id = ?";
+        $sql = "SELECT * FROM suppliers WHERE id = ?";
         $stmt = $this->conn->prepare($sql);
         $stmt->bind_param('i', $id);
         $stmt->execute();
@@ -41,18 +40,15 @@ class User
 
     public function update($id, $data)
     {
-        $data['email'] = trim($data['email']); 
-        $sql = "UPDATE users SET first_name = ?, email = ?, password = ? WHERE id = ?";
+        $sql = "UPDATE suppliers SET name = ?, contact = ?, phone = ?, email = ?, address = ? WHERE id = ?";
         $stmt = $this->conn->prepare($sql);
-        $hashedPassword = password_hash($data['password'], PASSWORD_BCRYPT);
-        $stmt->bind_param('sssi', $data['first_name'], $data['email'], $hashedPassword, $id);
+        $stmt->bind_param('sssssi', $data['name'], $data['contact'], $data['phone'], $data['email'], $data['address'], $id);
         return $stmt->execute();
     }
-    
 
     public function delete($id)
     {
-        $sql = "DELETE FROM users WHERE id = ?";
+        $sql = "DELETE FROM suppliers WHERE id = ?";
         $stmt = $this->conn->prepare($sql);
         $stmt->bind_param('i', $id);
         return $stmt->execute();

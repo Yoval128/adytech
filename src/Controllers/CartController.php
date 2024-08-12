@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Core\Database;
 use App\Models\Product;
 use App\Models\Cart;
 
@@ -9,41 +10,41 @@ class CartController
 {
     private $product;
     private $cart;
+    private $db;
+
+
 
     public function __construct()
     {
         $this->product = new Product();
-        $this->cart = new Cart(); // Asegúrate de tener un modelo Cart que maneje el carrito
+        $this->cart = new Cart();
+
+        $this->db = Database::getInstance()->getConnection();
     }
 
-    // Método para agregar un producto al carrito
     public function add()
     {
-        // Verificar si el producto ID se ha enviado en la solicitud
         $data = json_decode(file_get_contents('php://input'), true);
-        $productId = $data['product_id'] ?? null;
-
-        if ($productId) {
-            $product = $this->product->find($productId);
-            if ($product) {
-                // Lógica para agregar producto al carrito
-                $result = $this->cart->addProduct($product);
-                
-                if ($result) {
-                    echo json_encode(['success' => true, 'message' => 'Producto agregado al carrito']);
-                } else {
-                    echo json_encode(['success' => false, 'message' => 'No se pudo agregar el producto']);
-                }
+        $productId = $data['productId'] ?? null;
+        header('Content-Type: application/json');
+        session_start();
+        if (!isset($_SESSION['cart'])) {
+            $_SESSION['cart'] = [];
+        } 
+        
+        $product = $this->product->getById($productId);
+        if ($product && $product['stock'] > 0) {
+            if (isset($_SESSION['cart'][$productId])) {
+                $_SESSION['cart'][$productId]['quantity']++;
             } else {
-                echo json_encode(['success' => false, 'message' => 'Producto no encontrado']);
+                $_SESSION['cart'][$productId] = ['quantity' => 1, 'price' => $product['price']];
             }
+            return json_encode(['status' => 'success', 'message' => 'Product added to cart']);
         } else {
-            echo json_encode(['success' => false, 'message' => 'ID de producto no proporcionado']);
+            return json_encode(['status' => 'error', 'message' => 'Product not available']);
         }
-        exit();
     }
 
-    // Método para mostrar el contenido del carrito
     public function view()
     {
         $cartItems = $this->cart->getItems();
@@ -51,16 +52,14 @@ class CartController
         exit();
     }
 
-    // Método para eliminar un producto del carrito
     public function remove()
     {
-        // Verificar si el producto ID se ha enviado en la solicitud
         $data = json_decode(file_get_contents('php://input'), true);
-        $productId = $data['product_id'] ?? null;
+        $productId = $data['id'] ?? null;
 
         if ($productId) {
             $result = $this->cart->removeProduct($productId);
-            
+
             if ($result) {
                 echo json_encode(['success' => true, 'message' => 'Producto eliminado del carrito']);
             } else {
@@ -71,31 +70,23 @@ class CartController
         }
         exit();
     }
-
-    // Método para procesar la compra
     public function checkout()
     {
         $data = $_POST;
         $discount = $data['discount'] ?? 0;
         $moneyReceived = $data['money_received'] ?? 0;
-        
-        // Obtener el contenido del carrito
+
         $cartItems = $this->cart->getItems();
-        
+
         if (!empty($cartItems)) {
-            // Calcular subtotal, descuentos y total
             $subtotal = 0;
             foreach ($cartItems as $item) {
-                $subtotal += $item['price'] * $item['quantity'];
+                $subtotal += $item['price'] * $item['stock'];
             }
 
             $total = $subtotal - $discount;
             $change = $moneyReceived - $total;
 
-            // Aquí puedes agregar la lógica para guardar la venta en la base de datos
-            // Por ejemplo, creando un registro de venta y vaciando el carrito
-
-            // Vaciar el carrito después de la compra
             $this->cart->clear();
 
             echo json_encode([

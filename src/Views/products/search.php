@@ -16,19 +16,31 @@
         <main class="content">
             <div class="intro-section">
                 <div class="intro-title">
-                    <h1>Catálogo de Artículos</h1>
+                    <h1>Productos en existencia</h1>
                 </div>
                 <div class="intro-description">
-                    <p>En esta sección encontrarás un listado detallado de todos los 
-                        productos que tienes en stock, incluyendo categorias, modelos y precios. 
-                        Podrás realizar búsquedas por Id o marca  encontrar 
-                        rápidamente lo que buscas.
-                    </p>
+                    <p>Descripción.</p>
                 </div>
             </div>
 
             <div class="separator"></div>
             <?php require_once '..\src\Views\partials\navTabs\navTabsInventary.php' ?>
+            <div class="separator"></div>
+
+            <!-- Sección de Búsqueda por ID -->
+            <div class="search-section">
+                <h2>Buscar Producto por ID</h2>
+                <form action="/products/search" method="GET">
+                    <div class="form-group">
+                        <label for="product_id">ID del Producto:</label>
+                        <input type="text" class="form-control" id="product_id" name="product_id" placeholder="Ingresa el ID del producto" required>
+                    </div>
+                    <div class="form-buttons">
+                        <button type="submit" class="btn btn-primary">Buscar</button>
+                    </div>
+                </form>
+            </div>
+
             <div class="separator"></div>
 
             <div class="products-section">
