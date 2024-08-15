@@ -93,7 +93,7 @@
                         </div>
 
                         <div class="menu-box">
-                            <a href="">
+                            <a href="/category/list">
                                 <div class="menu-icon">
                                     <img src="/images/icons/icon-category.png" alt="Opccion 5">
                                 </div>

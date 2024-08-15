@@ -54,7 +54,8 @@ $router->add('/sales/delete', 'SaleController@delete', 'POST');
 $router->add('/sales/alter', 'SaleController@edit', 'POST');
 $router->add('/sales/update', 'SaleController@update', 'POST');
 $router->add('/sales/searchByIdUser', 'SaleController@searchById', 'GET');
-$router->add('/sales/searchByDate', 'SaleController@searchByDate', 'GET');
+
+$router->add('/sales/searchByDate', 'SaleController@totalSalesByDate', 'GET');
 
 $router->add('/cart/add', 'CartController@add', 'POST');
 $router->add('/cart/list', 'CartController@view', 'GET');

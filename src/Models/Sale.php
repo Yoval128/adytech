@@ -21,7 +21,6 @@ class Sale
         return $stmt->execute();
     }
 
-
     public function getAll()
     {
         $sql = "SELECT sales.*, 
@@ -45,7 +44,6 @@ class Sale
         return $result->fetch_assoc();
     }
 
-
     public function update($id, $data)
     {
         $sql = "UPDATE sales SET product_id = ?, quantity = ?, total_price = ?, sale_date = ?, customer_id = ? WHERE id = ?";
@@ -61,4 +59,43 @@ class Sale
         $stmt->bind_param('i', $id);
         return $stmt->execute();
     }
+
+    public function getSalesByEmployee($employeeId)
+    {
+        $sql = "SELECT sales.*, 
+                       CONCAT(users.first_name, ' ', users.Last_name) AS seller_name 
+                FROM sales 
+                LEFT JOIN users ON sales.user_id = users.id
+                WHERE sales.user_id = ?";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bind_param('i', $employeeId);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function getTotalSalesByDate()
+    {
+        $sql = "SELECT DATE(date) as sale_date, SUM(total) as total_sales
+                FROM sales
+                GROUP BY sale_date
+                ORDER BY sale_date ASC";
+        $result = $this->conn->query($sql);
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+    public function getTotalSalesByMonth($month)
+{
+    $sql = "SELECT DATE(date) as sale_date, SUM(total) as total_sales
+            FROM sales
+            WHERE DATE_FORMAT(date, '%Y-%m') = ?
+            GROUP BY sale_date
+            ORDER BY sale_date ASC";
+    
+    $stmt = $this->conn->prepare($sql);
+    $stmt->bind_param('s', $month);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    return $result->fetch_all(MYSQLI_ASSOC);
+}
+
 }
