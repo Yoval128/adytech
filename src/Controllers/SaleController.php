@@ -29,16 +29,18 @@ class SaleController
     public function listSales()
     {
         $sales = $this->sale->getAll();
-        require __DIR__ . "/../Views/sales/list.php";
+        require __DIR__ . "/../Views/sales/sales.php";
     }
-
+    
+  
     public function delete()
     {
         $saleId = $_POST['sale_id'];
-        $this->sale->delete($saleId);
+        $this->sale->delete($saleId); 
         header('Location: /sales/list');
         exit();
     }
+    
 
     public function edit()
     {

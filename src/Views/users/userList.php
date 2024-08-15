@@ -19,7 +19,9 @@
                     <h1>Sección de Usuarios</h1>
                 </div>
                 <div class="intro-description">
-                    <p>Descripción.</p>
+                    <p>Un registro completo de todos los usuarios registrados en el sistema, 
+                        incluyendo información como nombre completo, correo electrónico, roles y datos de contacto.
+                    </p>
                 </div>
             </div>
 
@@ -27,17 +29,17 @@
             <?php require_once '..\src\Views\partials\navTabs\navTabsUsers.php' ?>
             <div class="separator"></div>
 
-            <div class="users-section">
+            <div class="user-section">
                 <h2>Lista de Usuarios</h2>
-                <div class="users-list">
+                <div class="user-list">
                     <?php if (!empty($users)) : ?>
                         <?php foreach ($users as $user) : ?>
                             <div class="user-container">
-                                <div class="description-users">
-                                    <div class="users-image">
-                                        Foto de perfil
+                                <div class="description-user">
+                                    <div class="user-image">
+                                        <img src="/images/users/perfil.png" alt="Imagen de perfil">
                                     </div>
-                                    <div class="users-details">
+                                    <div class="user-details">
                                         <h3><?php echo htmlspecialchars($user['first_name']); ?></h3>
                                         <p>Apellido: <?php echo htmlspecialchars($user['Last_name']); ?> </p>
                                         <p>Email: <?php echo htmlspecialchars($user['email']); ?></p>
@@ -46,8 +48,8 @@
                                         <p>Tipo de usuario: <?php echo htmlspecialchars($user['user_type_id']); ?></p>
                                     </div>
                                 </div>
-                                <div class="users-actions">
-                                    <form action="/users/delete" method="POST" onsubmit="return confirm('¿Estás seguro de que quieres eliminar este usero?');" style="display:inline-block;">
+                                <div class="user-actions">
+                                    <form action="/users/delete" method="POST" onsubmit="return confirm('¿Estás seguro de que quieres eliminar este usuario?');" style="display:inline-block;">
                                         <input type="hidden" name="user_id" value="<?php echo htmlspecialchars($user['id']); ?>">
                                         <button type="submit" class="btn btn-danger">Eliminar</button>
                                     </form>
@@ -69,9 +71,7 @@
 </body>
 
 <footer>
-    <p>Hola mundo</p>
-</footer>
-
-<script src="\js\scripts.js"></script>
-
+        <script src="\js\scripts.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    </footer>
 </html>

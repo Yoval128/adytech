@@ -18,7 +18,8 @@
                     <h1>Agregar nuevos Productos</h1>
                 </div>
                 <div class="intro-description">
-                    <p>Descripción.</p>
+                    <p>Expande tu catálogo y ofrece una mayor variedad de productos a tus clientes.
+                    </p>
                 </div>
             </div>
 
@@ -28,11 +29,15 @@
 
             <div class="products-section">
                 <section class="create-section">
-                    <div class="container">
+                    <div class="form-container">
                         <div class="section-title">
-                            <h2>Nuevo Producto</h2>
+                            <h1>Nuevo Producto</h1>
                         </div>
+                        <div class="form-description">
+                            Coplete los siguientes campos para registrar un nuevo producto.
 
+
+                        </div>
                         <form action="/products/create" method="POST">
                             <div class="form-group">
                                 <label for="name">Nombre</label>
@@ -72,8 +77,11 @@
 
         </main>
     </div>
+    <footer>
+        <script src="\js\scripts.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    </footer>
 </body>
-
 
 
 </html>

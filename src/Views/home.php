@@ -87,7 +87,7 @@
                                     <h2>Mis Proveedores</h2>
                                 </div>
                                 <div class="menu-description">
-                                    <p>Visualizar lista de Proveedores, Registar, Eliminar, o Actualizar detalles de Empleados</p>
+                                    <p>Visualizar lista de Proveedores, Registar, Eliminar, o Actualizar detalles de los proveedores</p>
                                 </div>
                             </a>
                         </div>
@@ -95,13 +95,14 @@
                         <div class="menu-box">
                             <a href="">
                                 <div class="menu-icon">
-                                    <img src="/images/icons/icon-question_mark.png" alt="Opccion 5">
+                                    <img src="/images/icons/icon-category.png" alt="Opccion 5">
                                 </div>
                                 <div class="menu-title">
-                                    <h2>Menu</h2>
+                                    <h2>Categorias</h2>
                                 </div>
                                 <div class="menu-description">
-                                    <xc>Descripccion</p>
+                                <p>Visualizar lista de Proveedores, Registar, Eliminar, o Actualizar detalles de las categorias</p>
+                             
                                 </div>
                             </a>
                         </div>
@@ -111,8 +112,7 @@
         </main>
     </div>
     <footer>
-        <script src="\js\scripts.js"></script>
-        <p>Hola mundo</p>
+        <?php require_once __DIR__ . '/../Views/partials/footer.php';?>
     </footer>
 </body>
 

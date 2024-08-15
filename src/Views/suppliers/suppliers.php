@@ -19,7 +19,10 @@
                     <h1>Proveedores Registrados</h1>
                 </div>
                 <div class="intro-description">
-                    <p>Lista de todos los proveedores registrados en el sistema.</p>
+                    <p>Un catálogo completo de todos los proveedores registrados
+                        en nuestra plataforma, con información detallada sobre sus
+                        productos y servicios.
+                    </p>
                 </div>
             </div>
 
@@ -35,9 +38,9 @@
                             <div class="supplier-container">
                                 <div class="description-suppliers">
                                     <div class="supplier-details">
-                                        <h3><?php echo htmlspecialchars($supplier['name']); ?></h3>       
-                                                                 
-                                        <p>ID: <?php echo htmlspecialchars($supplier['id']); ?></p>                              
+                                        <h3><?php echo htmlspecialchars($supplier['name']); ?></h3>
+
+                                        <p>ID: <?php echo htmlspecialchars($supplier['id']); ?></p>
                                         <p>Contacto: <?php echo htmlspecialchars($supplier['contact']); ?></p>
                                         <p>Teléfono: <?php echo htmlspecialchars($supplier['phone']); ?></p>
                                         <p>Email: <?php echo htmlspecialchars($supplier['email']); ?></p>
@@ -69,9 +72,8 @@
 </body>
 
 <footer>
-    <p>Hola mundo</p>
+    <script src="\js\scripts.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </footer>
-
-<script src="\js\scripts.js"></script>
 
 </html>

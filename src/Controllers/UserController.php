@@ -13,14 +13,14 @@ class UserController
         $this->user = new User();
     }
 
-    
+
 
     public function store()
     {
         $data = $_POST;
         $this->user->create($data);
         header('Location: /users/list');
-        exit(); 
+        exit();
     }
 
     public function listUsers()
@@ -36,7 +36,7 @@ class UserController
         header('Location: /users/list');
         exit();
     }
- 
+
     public function edit()
     {
         $id = $_POST['user_id'] ?? null;
@@ -51,5 +51,19 @@ class UserController
         $this->user->update($id, $data);
         header('Location: /users/list');
         exit();
+    }
+
+
+    public function search()
+    {
+        $id = $_GET['id'] ?? null;
+        $user = $this->user->find($id);
+        $users = [];
+
+        if ($user) {
+            $users[] = $user;
+        }
+
+        require __DIR__ . '/../Views/users/userSearchById.php';
     }
 }

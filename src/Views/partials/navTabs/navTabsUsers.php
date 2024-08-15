@@ -14,7 +14,7 @@
             </div>
 
             <div class="menu-item-page">
-                <a href="/products/list">
+                <a href="/users/list">
                     <div class="menu-icon-page">
                         <img src="/images/icons/icon-list-products.png" alt="List">
                     </div>
@@ -25,16 +25,18 @@
             </div>
 
             <div class="menu-item-page">
-                <div class="menu-icon-page">
-                    <img src="/images/icons/icon-search-products.png" alt="Search">
-                </div>
-                <div class="menu-title-page">
-                    <h2>Buscar Empleado</h2>
-                </div>
+                <a href="/users/search">
+                    <div class="menu-icon-page">
+                        <img src="/images/icons/icon-search-products.png" alt="Search">
+                    </div>
+                    <div class="menu-title-page">
+                        <h2>Buscar Empleado</h2>
+                    </div>
             </div>
+            </a>
         </div>
 
-        <div class="menu-row-page">
+        <!-- <div class="menu-row-page">
             <div class="menu-item-page">
                 <div class="menu-icon-page">
                     <img src="/images/icons/icon-question_mark.png" alt="Opción 5">
@@ -43,23 +45,7 @@
                     <h2>Opción 5</h2>
                 </div>
             </div>
-            <div class="menu-item-page">
-                <div class="menu-icon-page">
-                    <img src="/images/icons/icon-question_mark.png" alt="Opción 6">
-                </div>
-                <div class="menu-title-page">
-                    <h2>Opción 6</h2>
-                </div>
-            </div>
-            <div class="menu-item-page">
-                <div class="menu-icon-page">
-                    <img src="/images/icons/icon-question_mark.png" alt="Opción 7">
-                </div>
-                <div class="menu-title-page">
-                    <h2>Opción 7</h2>
-                </div>
-            </div>
-        </div>
+        </div> -->
     </div>
 
 </div>

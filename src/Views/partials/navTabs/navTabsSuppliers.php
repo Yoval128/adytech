@@ -25,7 +25,7 @@
             </div>
 
             <div class="menu-item-page">
-                <a href="">
+                <a href="/suppliers/searchByName">
                     <div class="menu-icon-page">
                         <img src="/images/icons/icon-search-products.png" alt="Search">
                     </div>
@@ -36,7 +36,7 @@
             </div>
         </div>
 
-        <div class="menu-row-page">
+        <!-- <div class="menu-row-page">
             <div class="menu-item-page">
                 <div class="menu-icon-page">
                     <img src="/images/icons/icon-question_mark.png" alt="Opción 5">
@@ -61,7 +61,7 @@
                     <h2>Opción 7</h2>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
 
 </div>

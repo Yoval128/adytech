@@ -3,48 +3,39 @@
         <div class="menu-row-page">
 
             <div class="menu-item-page">
-                <a href="/products/create">
+                <a href="/category/create">
                     <div class="menu-icon-page">
                         <img src="/images/icons/icon-add-products.png" alt="Create">
                     </div>
                     <div class="menu-title-page">
-                        <h2>Agregar nuevo producto</h2>
+                        <h2>Agregar nueva Categoria</h2>
                     </div>
                 </a>
             </div>
 
             <div class="menu-item-page">
-                <a href="/products/list">
+                <a href="/category/list">
                     <div class="menu-icon-page">
                         <img src="/images/icons/icon-list-products.png" alt="List">
                     </div>
                     <div class="menu-title-page">
-                        <h2>Lista de productos</h2>
+                        <h2>Lista de Categorias</h2>
                     </div>
                 </a>
             </div>
 
             <div class="menu-item-page">
-                <a href="/products/search">
+                <a href="/category/searchById">
                     <div class="menu-icon-page">
                         <img src="/images/icons/icon-search-products.png" alt="Search">
                     </div>
                     <div class="menu-title-page">
-                        <h2>Buscar productos (Id)</h2>
+                        <h2>Buscar Categoria (Id)</h2>
                     </div>
                 </a>
             </div>
 
-            <div class="menu-item-page">
-                <a href="/products/searchByCategory">
-                    <div class="menu-icon-page">
-                        <img src="/images/icons/icon-category.png" alt="Opción 4">
-                    </div>
-                    <div class="menu-title-page">
-                        <h2>Buscar productos (categoria)</h2>
-                    </div>
-                </a>
-            </div>
+           
         </div>
         <!-- <div class="menu-row-page">
             <div class="menu-item-page">

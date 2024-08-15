@@ -57,4 +57,21 @@ class User
         $stmt->bind_param('i', $id);
         return $stmt->execute();
     }
+
+    public function search($id)
+    {
+        return $this->find($id);
+    }
+
+    
+    public function findByCategory($categoryId)
+    {
+        $sql = "SELECT * FROM products WHERE category_id = ?";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bind_param('i', $categoryId);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
 }

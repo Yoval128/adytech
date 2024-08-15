@@ -64,10 +64,39 @@ class ProductController
         exit();
     }
 
+    // public function search()
+    // {
+    //     $id = $_GET['product_id'] ?? null;
+    //     $product = $this->product->find($id);
+    //     require __DIR__ . '/../Views/products/search.php';
+
+    // }
+
     public function search()
     {
         $id = $_GET['product_id'] ?? null;
         $product = $this->product->find($id);
-        require __DIR__ . '/../Views/products/search.php';
+        $products = [];
+
+        if ($product) {
+            $products[] = $product;
+        }
+
+        require __DIR__ . '/../Views/products/searchId.php';
+    }
+   
+    public function searchByCategory()
+    {
+        $categories = $this->category->getAll();
+
+        $categoryId = $_GET['category_id'] ?? null;
+        $products = [];
+        $categoryName = '';
+
+        if ($categoryId) {
+            $products = $this->product->findByCategory($categoryId);
+            $categoryName = $this->category->findNameById($categoryId);
+        }
+        require __DIR__ . '/../Views/products/searchCategory.php';
     }
 }

@@ -38,7 +38,7 @@ class Product
         return $result->fetch_assoc();
     }
 
-    
+
     public function update($id, $data)
     {
         $sql = "UPDATE products SET name = ?, description = ?, price = ?, stock = ?, category_id = ? WHERE id = ?";
@@ -65,5 +65,38 @@ class Product
     public function search($id)
     {
         return $this->find($id);
+    }
+
+    // public function findByCategory($categoryId)
+    // {
+    //     $sql = "SELECT * FROM products WHERE category_id = ?";
+    //     $stmt = $this->conn->prepare($sql);
+    //     $stmt->bind_param('i', $categoryId);
+    //     $stmt->execute();
+    //     $result = $stmt->get_result();
+    //     return $result->fetch_all(MYSQLI_ASSOC);
+    // }
+    
+    // En el modelo Product
+    public function findByCategory($categoryId)
+    {
+        $sql = "SELECT * FROM products WHERE category_id = ?";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bind_param('i', $categoryId);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+   
+    public function findNameById($categoryId)
+    {
+        $sql = "SELECT name FROM categories WHERE id = ?";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bind_param('i', $categoryId);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $category = $result->fetch_assoc();
+        return $category['name'] ?? 'Categoría desconocida';
     }
 }

@@ -70,4 +70,17 @@ class SupplierController
         header('Location: /suppliers/list');
         exit();
     }
+
+    public function searchByName()
+{
+    $suppliers = $this->supplier->getAll(); 
+    $supplier = null;
+    if (isset($_GET['supplier_id']) && !empty($_GET['supplier_id'])) {
+        $supplierId = $_GET['supplier_id'];
+        $supplier = $this->supplier->find($supplierId); 
+    }
+
+    require __DIR__ . '/../Views/suppliers/suppliersSearchName.php';
+}
+
 }
