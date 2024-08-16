@@ -41,7 +41,7 @@
                         <img src="/images/icons/icon-search-products.png" alt="Opción 4">
                     </div>
                     <div class="menu-title-page">
-                        <h2>Buscar Venta (Nombre Empleado)</h2>
+                        <h2>Venta Empleado (Mensual)</h2>
                     </div>
                 </a>
             </div>

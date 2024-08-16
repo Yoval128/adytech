@@ -13,13 +13,25 @@ class Sale
         $this->conn = Database::getInstance()->getConnection();
     }
 
-    public function create($data)
+    public function create($date, $userId, $total)
     {
-        $sql = "INSERT INTO sales (date, user_id, total) VALUES (?, ?, ?)";
-        $stmt = $this->conn->prepare($sql);
-        $stmt->bind_param('sid', $data['date'], $data['user_id'], $data['total']);
-        return $stmt->execute();
+        $query = "INSERT INTO sales (date, user_id, total) VALUES (?, ?, ?)";
+        $stmt = $this->conn->prepare($query);
+
+        if ($stmt === false) {
+            throw new \Exception("Failed to prepare statement: " . $this->conn->error);
+        }
+
+        $stmt->bind_param('sii', $date, $userId, $total);
+
+        if (!$stmt->execute()) {
+            throw new \Exception("Failed to execute statement: " . $stmt->error);
+        }
+
+        return $stmt->insert_id;
     }
+
+
 
     public function getAll()
     {
@@ -84,18 +96,17 @@ class Sale
         return $result->fetch_all(MYSQLI_ASSOC);
     }
     public function getTotalSalesByMonth($month)
-{
-    $sql = "SELECT DATE(date) as sale_date, SUM(total) as total_sales
+    {
+        $sql = "SELECT DATE(date) as sale_date, SUM(total) as total_sales
             FROM sales
             WHERE DATE_FORMAT(date, '%Y-%m') = ?
             GROUP BY sale_date
             ORDER BY sale_date ASC";
-    
-    $stmt = $this->conn->prepare($sql);
-    $stmt->bind_param('s', $month);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    return $result->fetch_all(MYSQLI_ASSOC);
-}
 
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bind_param('s', $month);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
 }

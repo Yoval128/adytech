@@ -22,7 +22,10 @@
                     <p>Consulta el total de ventas agrupadas por fecha.</p>
                 </div>
             </div>
-
+            
+            <div class="separator"></div>
+            <?php require_once '../src/Views/partials/navTabs/navTabsSale.php'; ?>
+            
             <div class="separator"></div>
             <form action="/sales/searchByDate" method="GET">
                 <div class="form-group">

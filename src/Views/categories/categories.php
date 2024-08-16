@@ -37,7 +37,7 @@
                             <div class="category-container">
                                 <div class="description-category">
                                     <div class="category-image">
-                                        <img src="/images/categories/default.png" alt="Imagen de categoría">
+                                        <img src="/images/image.png" alt="Imagen de categoría">
                                     </div>
                                     <div class="category-details">
                                         <h3><?php echo htmlspecialchars($category['name']); ?></h3>

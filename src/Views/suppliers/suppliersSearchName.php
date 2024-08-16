@@ -49,35 +49,31 @@
 
             <div class="separator"></div>
             <div class="suppliers-section">
-                <h2>Datos del proveedor: <?php echo htmlspecialchars($supplier['name']); ?></h2>
-                <div class="suppliers-list">
-                    <?php if ($supplier) : ?>
+            <h2>Datos del proveedor: 
+    <?php echo isset($supplier['name']) ? htmlspecialchars($supplier['name']) : 'No seleccionado'; ?>
+</h2>
 
-                        <div class="supplier-container">
-                            <div class="description-suppliers">
-                                <div class="supplier-details">
-                                    <p>ID: <?php echo htmlspecialchars($supplier['id']); ?></p>
-                                    <p>Contacto: <?php echo htmlspecialchars($supplier['contact']); ?></p>
-                                    <p>Teléfono: <?php echo htmlspecialchars($supplier['phone']); ?></p>
-                                    <p>Email: <?php echo htmlspecialchars($supplier['email']); ?></p>
-                                    <p>Dirección: <?php echo htmlspecialchars($supplier['address']); ?></p>
-                                </div>
-                            </div>
-                            <div class="supplier-actions">
-                                <form action="/suppliers/alter" method="POST" style="display:inline-block;">
-                                    <input type="hidden" name="supplier_id" value="<?php echo htmlspecialchars($supplier['id']); ?>">
-                                    <button type="submit" class="btn btn-primary">Modificar</button>
-                                </form>
-                                <form action="/suppliers/delete" method="POST" onsubmit="return confirm('¿Estás seguro de que quieres eliminar este proveedor?');" style="display:inline-block;">
-                                    <input type="hidden" name="supplier_id" value="<?php echo htmlspecialchars($supplier['id']); ?>">
-                                    <button type="submit" class="btn btn-danger">Eliminar</button>
-                                </form>
-                            </div>
-                        </div>
-                    <?php else : ?>
-                        <p>No se ha seleccionado ningún proveedor o el proveedor no existe.</p>
-                    <?php endif; ?>
+<div class="suppliers-list">
+    <?php if ($supplier) : ?>
+        <div class="supplier-container">
+            <div class="description-suppliers">
+                <div class="supplier-details">
+                    <p>ID: <?php echo isset($supplier['id']) ? htmlspecialchars($supplier['id']) : 'N/A'; ?></p>
+                    <p>Contacto: <?php echo isset($supplier['contact']) ? htmlspecialchars($supplier['contact']) : 'N/A'; ?></p>
+                    <p>Teléfono: <?php echo isset($supplier['phone']) ? htmlspecialchars($supplier['phone']) : 'N/A'; ?></p>
+                    <p>Email: <?php echo isset($supplier['email']) ? htmlspecialchars($supplier['email']) : 'N/A'; ?></p>
+                    <p>Dirección: <?php echo isset($supplier['address']) ? htmlspecialchars($supplier['address']) : 'N/A'; ?></p>
                 </div>
+            </div>
+            <div class="supplier-actions">
+                <!-- Aquí el formulario de modificación y eliminación -->
+            </div>
+        </div>
+    <?php else : ?>
+        <p>No se ha seleccionado ningún proveedor o el proveedor no existe.</p>
+    <?php endif; ?>
+</div>
+
             </div>
 
 

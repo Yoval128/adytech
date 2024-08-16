@@ -38,7 +38,7 @@
         <div class="submenu">
             <a href="/suppliers/list">Lista de Proveedores</a>
             <a href="/suppliers/create">Agregar Proveedores</a>
-            <a href="suppliers/searchByName">Busqueda (Nombre) </a>
+            <a href="/suppliers/searchByName">Busqueda (Nombre) </a>
         </div>
     </div>
     <div class="menu-item">
@@ -53,8 +53,6 @@
     <div class="menu-item">
         <span class="menu-toggle">+ Más</span>
         <div class="submenu">
-            <a href="#">QR</a>
-            <a href="#">Estadísticas</a>
         </div>
     </div>
 </aside>

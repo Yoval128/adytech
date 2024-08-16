@@ -4,10 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create Product</title>
+    <title>Registrar Venta</title>
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <?php session_start(); ?>
 </head>
 
 <body>
@@ -16,10 +15,10 @@
         <main class="content">
             <div class="intro-section">
                 <div class="intro-title">
-                    <h1>Agregar nuevos Productos</h1>
+                    <h1>Registrar Venta</h1>
                 </div>
                 <div class="intro-description">
-                    <p>Descripción.</p>
+                    <p>Ingrese los detalles de la venta y los productos.</p>
                 </div>
             </div>
 
@@ -29,74 +28,83 @@
 
             <div class="sale-section">
                 <div class="main-content">
-                    <div class="sale-container">
+                    <div class="sales-container">
                         <div class="sale-details">
                             <div class="section-title">
                                 <h2>Datos de Venta</h2>
                             </div>
                             <div class="sale-info">
-
                                 <p>Fecha: <?php echo date("Y-m-d"); ?></p>
                                 <p>ID Empleado: <?php echo htmlspecialchars($_SESSION['id']); ?></p>
                                 <p>Nombre: <?php echo htmlspecialchars($_SESSION['name']); ?></p>
                             </div>
-                            <div class="payment-calculation">
-                                <div class="form-group">
-                                    <label for="discount">Descuento</label>
-                                    <input type="number" id="discount" name="discount" step="0.01" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                    <label for="money_received">Dinero Recibido</label>
-                                    <input type="number" id="money_received" name="money_received" step="0.01" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                    <label for="change">Cambio</label>
-                                    <input type="number" id="change" name="change" step="0.01" class="form-control" readonly>
-                                </div>
-
-                            </div>
-                            <div class="sale-summary">
-                                <p>Subtotal: MX$</p>
-                                <p>Descuentos: MX$</p>
-                                <p>Total a Pagar: MX$</p>
-                            </div>
                         </div>
+                        <div class="sale-container">
+                            <div class="product-selection">
+                                <form id="saleForm" action="/sales/store" method="POST">
+                                    <div class="form-group">
+                                        <label for="product">Producto</label>
+                                        <select name="product_id" id="product" onchange="updatePrice()" required>
+                                            <option value="" disabled selected>Seleccione un producto</option>
+                                            <?php foreach ($products as $product): ?>
+                                                <option value="<?php echo htmlspecialchars($product['id']); ?>" data-price="<?php echo htmlspecialchars($product['price']); ?>">
+                                                    <?php echo htmlspecialchars($product['name']); ?>
+                                                </option>
+                                            <?php endforeach; ?>
+                                        </select>
 
-                        <div class="product-selection">
-                            <div class="action-row">
-                                <button type="submit" class="btn btn-primary">Comprar</button>
-                                <form action="/cart/add" method="POST">
-                                    <input type="text" id="search_input" placeholder="Buscar productos" class="search-box">
-                                    <button type="submit" id="add_to_cart" class="btn btn-secondary">Agregar al Carrito</button>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="price">Precio</label>
+                                        <input type="text" id="price" name="price" readonly>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="quantity">Cantidad</label>
+                                        <input type="number" id="quantity" name="quantity" required>
+                                    </div>
+
+                                    <button type="button" id="addToList" class="btn btn-primary">Agregar al Carrito</button>
+
+                                    <input type="hidden" id="cart_data" name="cart_data" value="">
+                                    <input type="hidden" id="date" name="date" value="<?php echo date("Y-m-d"); ?>">
+                                    <input type="hidden" id="user_id" name="user_id" value="<?php echo htmlspecialchars($_SESSION['id']); ?>">
+
+                                    <button type="submit" class="btn btn-success">Registrar Venta</button>
                                 </form>
-
                             </div>
-
-                            <div class="product-list">
-                                <table id="product_table">
+                            <div class="cart-summary">
+                                <h3>Carrito</h3>
+                                <table class="table" id="cartTable">
                                     <thead>
                                         <tr>
-                                            <th>Nombre</th>
-                                            <th>Descripción</th>
+                                            <th>Producto</th>
                                             <th>Precio</th>
-                                            <th>Categoría</th>
+                                            <th>Cantidad</th>
+                                            <th>Total</th>
                                             <th>Acción</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-
                                     </tbody>
                                 </table>
+                                <div class="form-group">
+                                    <label for="total">Total</label>
+                                    <input type="text" id="total" name="total" readonly>
+                                </div>
                             </div>
-                            <button type="button" id="remove_selected" class="btn btn-danger">Remover Seleccionados</button>
                         </div>
-
-
                     </div>
                 </div>
             </div>
         </main>
     </div>
+    <footer>
+        <script src="/js/scripts.js"></script>
+        <script src="/js/sales.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    </footer>
 </body>
 
 </html>

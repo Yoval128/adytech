@@ -53,15 +53,22 @@ class UserController
         exit();
     }
 
-
     public function search()
     {
         $id = $_GET['id'] ?? null;
-        $user = $this->user->find($id);
-        $users = [];
 
-        if ($user) {
-            $users[] = $user;
+        if ($id === null) {
+            $users = [];
+            $error = "No se proporcionó un ID válido.";
+        } else {
+            $user = $this->user->find($id);
+            $users = [];
+
+            if ($user) {
+                $users[] = $user;
+            } else {
+                $error = "No se encontró un usuario con el ID proporcionado.";
+            }
         }
 
         require __DIR__ . '/../Views/users/userSearchById.php';
