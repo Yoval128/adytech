@@ -32,7 +32,7 @@
                         <div class="section-title">
                             <h2>Ingresa los nuevos detalles de: <br> <?php echo htmlspecialchars($product['name']); ?></h2>
                         </div>
-                        <form action="/products/update" method="POST">
+                        <form action="/products/update" method="POST" enctype="multipart/form-data">
                             <input type="hidden" name="product_id" value="<?php echo htmlspecialchars($product['id']); ?>">
                             <div class="form-group">
                                 <label for="name">Nombre</label>
@@ -60,9 +60,15 @@
                                     <?php endforeach; ?>
                                 </select>
                             </div>
+                            <div class="form-group">
+                                <label for="image">Imagen del producto</label>
+                                <input type="file" class="form-control-file" id="image" name="image">
+                            </div>
+
                             <div class="form-buttons">
                                 <button type="submit" class="btn btn-primary">Guardar Cambios</button>
                             </div>
+
                         </form>
                     </div>
                 </section>
@@ -70,9 +76,9 @@
         </main>
     </div>
     <footer>
-    <script src="\js\scripts.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-</footer>
+        <script src="\js\scripts.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    </footer>
 </body>
 
 </html>

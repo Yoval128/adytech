@@ -56,10 +56,18 @@
                         <?php foreach ($products as $product) : ?>
                             <div class="product-container">
                                 <div class="description-products">
+                                    <div class="product-image">
+                                        <?php if (!empty($product['image_path'])) : ?>
+                                            <img src="<?php echo htmlspecialchars($product['image_path']); ?>" alt="<?php echo htmlspecialchars($product['name']); ?>">
+                                        <?php else : ?>
+                                            <img src="/images/products/default.png" alt="Imagen no disponible">
+                                        <?php endif; ?>
+                                    </div>
                                     <div class="product-details">
                                         <h3><?php echo htmlspecialchars($product['name']); ?></h3>
                                         <p>Precio: <?php echo htmlspecialchars($product['price']); ?> MX$</p>
                                         <p>Stock: <?php echo htmlspecialchars($product['stock']); ?></p>
+                                        <p>Categoría ID: <?php echo htmlspecialchars($product['category_id']); ?></p>
                                     </div>
                                 </div>
                                 <div class="product-actions">
@@ -82,11 +90,11 @@
 
         </main>
     </div>
-    
-<footer>
-<script src="\js\scripts.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-</footer>
+
+    <footer>
+        <script src="\js\scripts.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    </footer>
 
 </body>
 

@@ -25,10 +25,26 @@ class ProductController
     public function store()
     {
         $data = $_POST;
+
+        if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
+            $imageTmpPath = $_FILES['image']['tmp_name'];
+            $imageName = basename($_FILES['image']['name']);
+            $uploadDir = __DIR__ . '/../../public/images/products/';
+            $destination = $uploadDir . $imageName;
+
+            if (move_uploaded_file($imageTmpPath, $destination)) {
+                $data['image_path'] = '/images/products/' . $imageName;
+            } else {
+                $data['image_path'] = null;
+            }
+        }
+
         $this->product->create($data);
 
-        require __DIR__ . "/../Views/products/create.php";
+        header('Location: /products/create');
+        exit();
     }
+
 
     public function listProducts()
     {
@@ -57,12 +73,29 @@ class ProductController
 
     public function update()
     {
-        $id = $_POST['product_id'];
         $data = $_POST;
-        $this->product->update($id, $data);
-        header('Location: /products/list');
+        $productId = $data['product_id'];
+
+        if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
+            $imageTmpPath = $_FILES['image']['tmp_name'];
+            $imageName = basename($_FILES['image']['name']);
+            $uploadDir = __DIR__ . '/../../public/images/products/';
+            $destination = $uploadDir . $imageName;
+
+            if (move_uploaded_file($imageTmpPath, $destination)) {
+                $data['image_path'] = '/images/products/' . $imageName;
+            } else {
+                $data['image_path'] = null;
+            }
+        }
+
+        $productModel = new Product();
+        $productModel->update($productId, $data);
+
+        header("Location: /products/list");
         exit();
     }
+
 
     // public function search()
     // {
@@ -84,7 +117,7 @@ class ProductController
 
         require __DIR__ . '/../Views/products/searchId.php';
     }
-   
+
     public function searchByCategory()
     {
         $categories = $this->category->getAll();

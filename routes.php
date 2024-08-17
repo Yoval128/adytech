@@ -57,7 +57,5 @@ $router->add('/sales/searchByIdUser', 'SaleController@searchById', 'GET');
 
 $router->add('/sales/searchByDate', 'SaleController@totalSalesByDate', 'GET');
 
-$router->add('/cart/add', 'CartController@add', 'POST');
-$router->add('/cart/list', 'CartController@view', 'GET');
 
 return $router;

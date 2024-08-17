@@ -35,10 +35,10 @@
                             <div class="sales-container">
                                 <div class="description-sales">
                                     <div class="sale-details">
-                                        <p>Fecha: <?php echo htmlspecialchars($sale['date']); ?></p>
-                                        <p>Vendedor: <?php echo htmlspecialchars($sale['seller_name']); ?></p>
-                                        <p>Usuario ID: <?php echo htmlspecialchars($sale['user_id']); ?></p>
-                                        <p>Total: <?php echo htmlspecialchars($sale['total']); ?></p>
+                                        <p>Fecha: <br> <?php echo htmlspecialchars($sale['date']); ?></p>
+                                        <p>Vendedor:  <br> <?php echo htmlspecialchars($sale['seller_name']); ?></p>
+                                        <p>Usuario ID:  <br> <?php echo htmlspecialchars($sale['user_id']); ?></p>
+                                        <p>Total:  <br> <?php echo htmlspecialchars($sale['total']); ?></p>
                                     </div>
                                 </div>
                                 

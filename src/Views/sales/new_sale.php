@@ -28,8 +28,8 @@
 
             <div class="sale-section">
                 <div class="main-content">
-                    <div class="sales-container">
-                        <div class="sale-details">
+                    <div class="buy-container">
+                        <div class="buy-details">
                             <div class="section-title">
                                 <h2>Datos de Venta</h2>
                             </div>
@@ -40,7 +40,7 @@
                             </div>
                         </div>
                         <div class="sale-container">
-                            <div class="product-selection">
+                            <div class="buy-selection">
                                 <form id="saleForm" action="/sales/store" method="POST">
                                     <div class="form-group">
                                         <label for="product">Producto</label>
@@ -55,12 +55,12 @@
 
                                     </div>
 
-                                    <div class="form-group">
+                                    <div class="form-group-buy">
                                         <label for="price">Precio</label>
                                         <input type="text" id="price" name="price" readonly>
                                     </div>
 
-                                    <div class="form-group">
+                                    <div class="form-group-buy">
                                         <label for="quantity">Cantidad</label>
                                         <input type="number" id="quantity" name="quantity" required>
                                     </div>
@@ -89,7 +89,7 @@
                                     <tbody>
                                     </tbody>
                                 </table>
-                                <div class="form-group">
+                                <div class="form-group-buy">
                                     <label for="total">Total</label>
                                     <input type="text" id="total" name="total" readonly>
                                 </div>

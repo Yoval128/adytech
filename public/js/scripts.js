@@ -6,3 +6,5 @@ document.querySelectorAll('.menu-toggle').forEach(item => {
         submenu.style.display = submenu.style.display === 'block' ? 'none' : 'block';
     });
 });
+
+// ---------------------------------

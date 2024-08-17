@@ -15,18 +15,18 @@ class Product
 
     public function create($data)
     {
-        $sql = "INSERT INTO products (name, description, price, stock, category_id) VALUES (?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO products (name, description, price, stock, category_id, image_path) VALUES (?, ?, ?, ?, ?, ?)";
         $stmt = $this->conn->prepare($sql);
-        $stmt->bind_param('ssiii', $data['name'], $data['description'], $data['price'], $data['stock'], $data['category_id']);
+        $stmt->bind_param('ssiiis', $data['name'], $data['description'], $data['price'], $data['stock'], $data['category_id'], $data['image_path']);
         return $stmt->execute();
     }
-
     public function getAll()
     {
-        $sql = "SELECT * FROM products";
+        $sql = "SELECT * FROM products ORDER BY id DESC";
         $result = $this->conn->query($sql);
         return $result->fetch_all(MYSQLI_ASSOC);
     }
+
 
     public function find($id)
     {
@@ -40,32 +40,35 @@ class Product
 
 
     public function update($id, $data)
-    {
-        $sql = "UPDATE products SET name = ?, description = ?, price = ?, stock = ?, category_id = ? WHERE id = ?";
-        $stmt = $this->conn->prepare($sql);
-        $stmt->bind_param(
-            'ssiiii',
-            $data['name'],
-            $data['description'],
-            $data['price'],
-            $data['stock'],
-            $data['category_id'],
-            $id
-        );
-        return $stmt->execute();
-    }
+{
+    $sql = "UPDATE products SET name = ?, description = ?, price = ?, stock = ?, category_id = ?, image_path = ? WHERE id = ?";
+    $stmt = $this->conn->prepare($sql);
+    $stmt->bind_param(
+        'ssiiisi',
+        $data['name'],
+        $data['description'],
+        $data['price'],
+        $data['stock'],
+        $data['category_id'],
+        $data['image_path'],
+        $id
+    );
+    return $stmt->execute();
+}
 
-    public function delete($id)
-    {
-        $sql = "DELETE FROM products WHERE id = ?";
-        $stmt = $this->conn->prepare($sql);
-        $stmt->bind_param('i', $id);
-        return $stmt->execute();
-    }
-    public function search($id)
-    {
-        return $this->find($id);
-    }
+
+public function delete($id)
+{
+    $sql = "DELETE FROM inventory WHERE product_id = ?";
+    $stmt = $this->conn->prepare($sql);
+    $stmt->bind_param('i', $id);
+    $stmt->execute();
+
+    $sql = "DELETE FROM products WHERE id = ?";
+    $stmt = $this->conn->prepare($sql);
+    $stmt->bind_param('i', $id);
+    return $stmt->execute();
+}
 
     // public function findByCategory($categoryId)
     // {
@@ -76,8 +79,8 @@ class Product
     //     $result = $stmt->get_result();
     //     return $result->fetch_all(MYSQLI_ASSOC);
     // }
-    
-    // En el modelo Product
+
+   
     public function findByCategory($categoryId)
     {
         $sql = "SELECT * FROM products WHERE category_id = ?";
@@ -88,7 +91,7 @@ class Product
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-   
+
     public function findNameById($categoryId)
     {
         $sql = "SELECT name FROM categories WHERE id = ?";

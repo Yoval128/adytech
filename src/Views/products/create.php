@@ -38,7 +38,7 @@
 
 
                         </div>
-                        <form action="/products/create" method="POST">
+                        <form action="/products/create" method="POST" enctype="multipart/form-data">
                             <div class="form-group">
                                 <label for="name">Nombre</label>
                                 <input type="text" class="form-control" id="name" name="name" required>
@@ -64,6 +64,11 @@
                                         </option>
                                     <?php endforeach; ?>
                                 </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="image">Imagen del Producto</label>
+                                <input type="file" class="form-control" id="image" name="image">
                             </div>
                             <div class="form-actions">
                                 <button type="submit" class="btn btn-primary">Crear</button>

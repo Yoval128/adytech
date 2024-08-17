@@ -39,7 +39,11 @@
                             <div class="product-container">
                                 <div class="description-products">
                                     <div class="product-image">
-                                        <img src="/images/products/supra-red.png" alt="Supra rojo">
+                                        <?php if (!empty($product['image_path'])) : ?>
+                                            <img src="<?php echo htmlspecialchars($product['image_path']); ?>" alt="<?php echo htmlspecialchars($product['name']); ?>">
+                                        <?php else : ?>
+                                            <img src="/images/products/default.png" alt="Imagen no disponible">
+                                        <?php endif; ?>
                                     </div>
                                     <div class="product-details">
                                         <h3><?php echo htmlspecialchars($product['name']); ?></h3>
@@ -59,6 +63,7 @@
                                     </form>
                                 </div>
                             </div>
+
                         <?php endforeach; ?>
                     <?php else : ?>
                         <p>No hay productos disponibles.</p>
